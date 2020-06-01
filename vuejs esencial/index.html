@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Vue.js</title>
+        <meta name="description">
+        <style>
+            .aparecer-enter{
+                opacity: 0;
+            }
+            .aparecer-enter-active{
+                transition: opacity 1s;
+            }
+            .aparecer-leave-to{
+                opacity: 0;
+            }
+            .aparecer-leave-active{
+                transition: opacity 1s;
+            }
+
+        </style>
+    </head>
+<body>
+<main>
+    <!--<h1 v-show="conectado">Estoy conectado</h1>
+
+    <template v-if="conectado">
+        <h2 v-if="edad < 18">No uedes entrar.</h2>
+        <h2 v-else-if="edad > 200">Eres inmortal.</h2>
+        <h2 v-else>Puedes entrar.</h2>
+    </template>
+    <h1 v-else> No estas conectado</h1>
+
+    <ul>
+        <li v-for="dia in laborales">{{ dia }}</li>
+    </ul>-->
+
+<!--    <ul>
+        <li v-for="(value, key, index) in persona">
+            {{ index }} - {{ key }} - {{ value }}
+         </li>
+    </ul> -->
+    <h1>{{ mensajeAlReves }}</h1>
+    <ul>
+        <li v-for="tarea in tareasConPrioridad">
+            {{ tarea.titulo }}
+        </li>
+    </ul>
+    <form v-on:submit.prevent="agregarTarea">
+        <input type="text" placeholder="Introduce tu tarea">
+        <input type="submit" value="Enviar tarea" v-on:click="agregarTarea">
+    </form>
+
+    <ul>
+        <input type="search" v-model="busqueda" placeholder="Buscar juego">
+        <li v-for="juego in buscarJuego">
+            {{juego.titulo}}
+        </li>
+
+        <h1 v-text="mensaje"></h1>
+        <button @click="alReves">Al revés</button>
+        <pre>{{ $data }}</pre>
+    </ul>
+    <div id="app">
+        <h1>{{ mensaje }}</h1>
+    </div>
+    <input type="range" min="0" max="10" v-model="minimo">
+
+    <h1>Tareas</h1>
+    <h2>Tareas completadas</h2>
+    <ul>
+        <li :class="{ completado: tarea.completado }"
+            @click="completarTarea(tarea)"
+            v-for="tarea in tareas">
+        {{tarea.titulo}}
+        </li>
+    </ul>
+
+    <button @click="mostrar = !mostrar">Mostrar/Ocultar</button>
+
+    <transition name="aparecer" appear>
+        <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
+    </transition>
+
+    <!-- transicion entre diferentes elementos -->
+    <transition name="aparecer" appear>
+        <h1 v-if="mostrar" v-text="mensajes.transicion"></h1>
+        <h1 v-else>No hay mensaje</h1>
+    </transition>
+
+    <img v-for="persona in personas"
+         :src="persona.picture.thumbnail"
+         alt="">
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+</head>
+<body>
+    <!--<main>
+        <ul>
+            <li v-for="tarea in tareasAjax" v-text="tarea.title"></li>
+        </ul>
+
+        <h1>Tareas Ajax</h1>
+        <mis-tareas :tareas="tareasAjax"></mis-tareas>
+        <h1>Tareas locales</h1>
+        <mis-tareas :tares="tareasLocales"></mis-tareas>
+    </main>-->
+   <!-- <main>
+        <elegir-ganador :
+                        listado="personas"></elegir-ganador>
+    </main>
+    <script type="text/template" id="elegir-ganador-template">
+        <div> 
+            <h1>El ganador es: {{ ganador }}</h1> 
+            <template v-else>
+                <h1>Participantes</h1> 
+                <ul> 
+                    <li v-for="persona in listado">{{ persona }}</li>
+                    </ul>
+                </template>
+            <button @click="elegirGanador">Elegit ganador</button>
+            </div>,
+    </script>-->
+    <!--<main>
+        <autor :nombre="autor" :edad="99"></autor>
+    </main>-->
+    <!--<main>
+        <candidato v-for="candidato in candidatos"
+                   :nombre="candidato.name.first"
+                   :correoe = "candidato.email"
+                   :imagen="candidato.picture.thumbnail"
+                   :location="candidato.location">
+        </candidato>
+    </main>
+    <template id="candidato-template">
+        <blockquote>
+            <img :src="imagen" align="right">
+            <h1>{{ nombre }}</h1>
+            <h2>{{ correoe}} </h2>
+            <ul>
+                <li v-for="(value, key, index) in location">
+                    {{value}}
+                </li>
+        </blockquote>
+    </template>-->
+    <!--<main>
+        <alerta tipo="alerta--exito" posicion="alerta--arriba-derecha">
+            <template slot="header">Todo bien</template>
+            <template>Nuevo contenido de la alerta</template>
+            <template slot="footer">Puedes continuar</template>
+        </alerta>
+
+        <alerta tipo="alerta--error" posicion="alerta--arriba-izquierda">
+            <template slot="header">Error fatal</template>
+            <template>Esto va muy mal</template>
+            <template slot="footer">:(</template>
+        </alerta>
+
+        <alerta tipo="alerta--advertencia" posicion="alerta--abajo-derecha">
+            <template slot="header">Atención</template>
+            <template>Hay un problema</template>
+            <template slot="footer">:(</template>
+        </alerta>
+    </main>-->
+    <!--<main>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <li>
+                    <h1>{{ datos.title }}</h1>
+                </li>
+            </template>
+        </mis-tareas>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <li>
+                    <h1>{{ datos.title }}</h1>
+                </li>
+            </template>
+        </mis-tareas>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <li>
+                    <h1>{{ datos.title }}</h1>
+                </li>
+            </template>
+        </mis-tareas>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <li>
+                    <h1>{{ datos.title }}</h1>
+                </li>
+            </template>
+        </mis-tareas>
+        <template id="mis-tareas-template">
+            <ul>
+                <slot v-for="tarea in listado" :titulo="tarea.titulo"></slot>
+            </ul>
+        </template>
+    </main>-->
+    <!--<main>
+        <button @click="mostrarExito = true">Exito</button>
+        <button @click="mostrarError = true">Error</button>
+        <button @click="mostrarAdvertencia = true">Advertencia</button>
+
+        <alerta @ocultar="mostrarExito=false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--abajo-derecha">
+            <template slot="header">Todo bien</template>
+            <template>Sin problemas</template>
+            <template slot="footer">:)</template>
+        </alerta>
+        <alerta @ocultar="mostrarError=false" v-show="mostrarError" tipo="alerta--error" posicion="alerta--abajo-derecha">
+            <template slot="header">Error</template>
+            <template>Hay un problema</template>
+            <template slot="footer">:(</template>
+        </alerta>
+        <alerta @ocultar="mostrarAdvertencia=false" v-show="mostrarAdvertencia" tipo="alerta--advertencia" posicion="alerta--abajo-derecha">
+            <template slot="header">Atención</template>
+            <template>Hay un problema</template>
+            <template slot="footer">:(</template>
+        </alerta>
+
+    </main>-->
+    <!--<main>
+        <listado-productos :productos="productos"></listado-productos>
+        <carrito-compra></carrito-compra>
+        <hr>
+    </main>-->
+    <!--<main>
+        <lista-tareas :tareas="tareas"></lista-tareas>
+    </main>-->
+    <!--<main>
+        <button @click="seleccionado = 'lista-tareas'">Tareas</button>
+        <button @click="seleccionado = 'contacto'">Contacto</button>
+        <button @click="seleccionado = 'bio'">Bio</button>
+
+        <component :is="seleccionado"></component>
+
+    </main>-->
+    <!--<main>
+        <contrasena v-model="contrasena"></contrasena>
+    </main>-->
+    <main>
+        <usuarios>
+            <h1>Usuarios de la startup</h1>
+        </usuarios>
+    </main>
+    <template id="usuarios-template">
+        <div>
+            <section class="cabecera">
+                <slot></slot>
+                <input type="search" placeholder="Filtrar usuarios"v-model="busqueda">
+            </section>
+            <hr>
+            <section class="usuarios">
+                <usuario :datos v-for="usuario in filtrarUsuarios"></usuario>
+            </section>
+        </div>
+    </template>
+    <template id="usuario-template">
+        <div class="usuario">
+            <img align="left" :src="datos.foto" :alt="datos.nombre">
+            <section>
+                <h1>{{ datos.nombre }}</h1>
+                <small>{{ datos.correoe }}</small>
+            </section>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
